@@ -62,6 +62,14 @@
 
 })(jQuery);
 
+
+
+
+
+
+
+
+
 /* accordion plugin */
 /* dl > dt + dd 구조로 한다. */
 (function ($) {
@@ -257,6 +265,12 @@
     }
 
     function attachEvent(e){
+
+        //서브메뉴가 있을 때만 실행
+        if($(this).siblings('ul').length === 0){
+            return;
+        }
+
         e.preventDefault();
 
         var option = e.data.option;
@@ -264,6 +278,11 @@
         $(this).parents('li').siblings('li').find('ul').slideUp(option.slideDuration);
 
         $(this).siblings('ul').slideToggle(option.slideDuration);
+
+        //active 클래스 추가
+        $(this).closest('li').siblings('li').find('> a').removeClass('active');
+        $(this).toggleClass('active');
+
 
         /* 버튼 모양 바꾸기 */
         //아이콘 설정이 없다면 중지

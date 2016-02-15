@@ -7,7 +7,7 @@ $(document).ready(function () {
     })
 
     // gnb 토글
-    $('header nav.gnb > ul').sptreemenu();
+    $('header nav.gnb > ul').hovermenu();
 
 
 
@@ -62,6 +62,7 @@ $(window).load(function () {
 
     $("#preloader").delay(500).fadeOut("1200");
 });
+
 
 
 
